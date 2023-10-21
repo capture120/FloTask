@@ -1,0 +1,4 @@
+yarn run v1.22.19
+$ prettier --write "src/**/*.{js,jsx,ts,tsx}"
+src/components/TestComponent.tsx 91ms
+Done in 1.93s.

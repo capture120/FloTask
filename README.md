@@ -3,9 +3,11 @@ FloTask is a smart app that syncs your work with your body and mind! Connect you
 
 ### Prerequisites
 - [Node.js](https://nodejs.org/en/)
-- [expo](https://expo.io/)
+- [yarn](https://yarnpkg.com/en/)
+- [expo](https://expo.io/) (need to create an expo account)
 
-
+* If you have any errors in tsconfig.json, you may need to yarn install the missing dev dependencies.
+Ex: ```yarn add --dev @types/graceful-fs```
 
 ### Setup
 
@@ -18,24 +20,19 @@ FloTask is a smart app that syncs your work with your body and mind! Connect you
 2. **Install dependencies**
     ```bash
     cd client
-    npm install
-    npm install --global eas-cli
+    yarn global add expo-cli
+    yarn install
     ```
-
-
-    * If you get an error about `expo-cli` not being installed, run `npm install -g expo-cli` and then run `npm install` again.
 
 ### Running
 
 1. **Create client build**
     ```bash
     cd client
-    eas login
+    eas init --id f3b2fbc0-7137-4ed1-9e74-75d7bfdd7850 # Overwrite existing project link
+    eas login # login with created expo account
     eas build:configure
-    # ios
-    eas build -p ios --profile development
-    # android
-    eas build -p android --profile development
+    eas build # for local dev environment build: eas build --local
     
     ```
 2. **Download the build and drag into simulator**
