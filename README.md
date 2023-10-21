@@ -30,9 +30,13 @@ Ex: ```yarn add --dev @types/graceful-fs```
     npm install -g eas-cli
     ```
 
-### Running the app
+### Running App in Local Dev Environment
+    npx expo start --tunnel
+
+### Pushing and Running Production App
 
 1. **Create client build**
+    * Note: Building is only when you wish to package your solution to Expo cloud. See above for running the app locally.
     ```bash
     cd client
     eas login # login with created expo account
@@ -42,7 +46,7 @@ Ex: ```yarn add --dev @types/graceful-fs```
     # android
     eas build --profile development --platform android
 
-    # to build app with local machine, run: build: 'eas build --local' or 'expo-cli start --tunnel'
+    # to build app with local machine, run: build: 'npx expo start --tunnel'
     
     ```
 2. **Download the build and drag into simulator**
@@ -52,7 +56,7 @@ Ex: ```yarn add --dev @types/graceful-fs```
 1. **Start the client**
     ```bash
     cd client
-    npx expo start --dev-client (for local machine: npx expo start --tunnel)
+    npx expo start --dev-client
     ```
 
    * You can then open the app in the Expo app in the simulator.

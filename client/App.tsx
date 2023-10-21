@@ -10,7 +10,7 @@ export default function App() {
     <SafeAreaProvider>
       <NativeBaseProvider theme={theme}>
         <View style={styles.container}>
-          <Text>Test</Text>
+          <Text>SHOULD BE SHOWN!!!</Text>
         </View>
       </NativeBaseProvider>
     </SafeAreaProvider>
