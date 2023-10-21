@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
 
-import TestComponent from '@/components/TestComponent';
+import TestComponent from '@/components/TestingComponent';
 
 export default function App() {
   return (

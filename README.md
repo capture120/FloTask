@@ -11,31 +11,35 @@ Ex: ```yarn add --dev @types/graceful-fs```
 
 ### Setup
 
-1. **Clone the repository**
+1. **Clone the Repository**
     ```bash
     git clone https://github.com/capture120/FloTask.git
     cd FloTask
     ```
 
-2. **Install dependencies**
+2. **Install Dependencies**
     ```bash
     cd client
-    yarn global add expo-cli
+    yarn global add expo-cli # if you are on mac you may need to install expo-cli with npm: https://stackoverflow.com/questions/72874829/i-am-trying-to-install-eas-cli-and-am-getting-the-error-zsh-command-not-found
     yarn install
     ```
 
-### Running
+### Running the app
 
 1. **Create client build**
     ```bash
     cd client
-    eas init --id f3b2fbc0-7137-4ed1-9e74-75d7bfdd7850 # Overwrite existing project link
     eas login # login with created expo account
-    eas build:configure
-    eas build # for local dev environment build: eas build --local
+    eas init --id f3b2fbc0-7137-4ed1-9e74-75d7bfdd7850 # Overwrite existing project link
+    eas build:configure 
+    eas build # to build app with local machine, run: build: 'eas build --local'
+    # ^^^ this will take a while, you can check the status of the build with: eas build:list
+    # you will also have the option to choose between ios and android. Ios requires an appleID and developer account
     
     ```
 2. **Download the build and drag into simulator**
+    You can install an android simulator, or with mac use xcode
+
 
 1. **Start the client**
     ```bash
