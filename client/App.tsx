@@ -1,22 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
-
-import TestComponent from '@/components/TestingComponent';
-
+import { StyleSheet, Text, View } from "react-native";
+import { NativeBaseProvider, extendTheme } from "native-base";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 export default function App() {
+  const theme = extendTheme({
+    fontConfig: {},
+    colors: {},
+  });
   return (
-    <View style={styles.container}>
-      <TestComponent name={'David'} />
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaProvider>
+      <NativeBaseProvider theme={theme}>
+        <View style={styles.container}>
+          <Text>Test</Text>
+        </View>
+      </NativeBaseProvider>
+    </SafeAreaProvider>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
-  }
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
 });

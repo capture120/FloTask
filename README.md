@@ -20,8 +20,14 @@ Ex: ```yarn add --dev @types/graceful-fs```
 2. **Install Dependencies**
     ```bash
     cd client
-    yarn global add expo-cli # if you are on mac you may need to install expo-cli with npm: https://stackoverflow.com/questions/72874829/i-am-trying-to-install-eas-cli-and-am-getting-the-error-zsh-command-not-found
+    yarn global add expo-cli
     yarn install
+    ```
+
+    * if expo-cli is not recognized you may need to add expo-cli to path with
+    ```bash
+    export PATH="$(yarn global bin):$PATH" # OR
+    npm install -g eas-cli
     ```
 
 ### Running the app
@@ -30,11 +36,13 @@ Ex: ```yarn add --dev @types/graceful-fs```
     ```bash
     cd client
     eas login # login with created expo account
-    eas init --id f3b2fbc0-7137-4ed1-9e74-75d7bfdd7850 # Overwrite existing project link
     eas build:configure 
-    eas build # to build app with local machine, run: build: 'eas build --local'
-    # ^^^ this will take a while, you can check the status of the build with: eas build:list
-    # you will also have the option to choose between ios and android. Ios requires an appleID and developer account
+    # ios
+    eas build -p ios --profile development
+    # android
+    eas build --profile development --platform android
+
+    # to build app with local machine, run: build: 'eas build --local' or 'expo-cli start --tunnel'
     
     ```
 2. **Download the build and drag into simulator**
@@ -44,7 +52,7 @@ Ex: ```yarn add --dev @types/graceful-fs```
 1. **Start the client**
     ```bash
     cd client
-    npx expo start --dev-client
+    npx expo start --dev-client (for local machine: npx expo start --tunnel)
     ```
 
    * You can then open the app in the Expo app in the simulator.
