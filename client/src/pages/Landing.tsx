@@ -1,17 +1,38 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { StyleSheet, Text, View, Button, Image } from "react-native";
-import CustomComponent from "../components/CustomComponent";
+import AppLoading from 'expo-app-loading';
+import {
+  useFonts,
+  RobotoMono_400Regular,
+  RobotoMono_500Medium,
+  RobotoMono_700Bold,
+} from '@expo-google-fonts/roboto-mono';
+
+
+
 
 export default function Landing({ navigation }) {
+
+  useEffect(() => {
+    // setTimeout(() => {
+    //   navigation.navigate("Home");
+    // }, 1200);
+  }, []);
+
   return (
     <View style={styles.container}>
       <Image
         source={require("../../assets/landinglogo.png")}
         style={styles.image}
+        resizeMode="contain"
       />
       <Button
-        title="Go to Home"
+        title="Home"
         onPress={() => navigation.navigate("Home")}
+      ></Button>
+      <Button
+        title="Dashboard"
+        onPress={() => navigation.navigate("Dashboard")}
       ></Button>
     </View>
   );
@@ -30,7 +51,7 @@ const styles = StyleSheet.create({
   },
   image: {
     height: 58,
-    width: 410,
+    width: 350,
   },
 });
 
@@ -42,3 +63,6 @@ const styles = StyleSheet.create({
     />
 </View>
 */
+
+
+
