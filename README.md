@@ -45,12 +45,28 @@ If you team already has a functional build on Expo cloud, skip to step 3.
     ***Build Locally***
     If Windows:
     1. Install WSL2
-    2. Add ANDROID_NDK_HOME=C:\Users\[Your User]\AppData\Local\Android\Sdk\platform-tools in your path environmental variable
-    3. Add JAVA_HOME environmental variable in PATH. Find path to JAVA_HOME by running ```where java``` in cmd
+    2. Add ANDROID_NDK_HOME=C:\Users\[Your User]\AppData\Local\Android\Sdk\platform-tools in your path environmental variable *** Must be set in WSL, not in Windows ***
+    3. Add JAVA_HOME environmental variable in PATH for WSL.
     4. run npx expo install --fix
+
+    examples:
+    ***Run***
+    ```bash
+    sudo vim ~/.bashrc
+    ```
+    and add the following to the bottom of your file. Replace [your user] with your own username:
+    ```
+    export JAVA_HOME="/mnt/c/Program Files/Java/jdk-11.0.14"
+    export PATH=$PATH:$JAVA_HOME/bin
+    export ANDROID_NDK_HOME="/mnt/c/Users/[username]/AppData/Local/Android/Sdk/platform-tools"
+    export PATH=$PATH:$ANDROID_NDK_HOME
+    ```
+
+    5. 
     ```bash
     eas build --local
     ```
+
     ***Build and Push to Cloud***
     ```bash
     cd client
