@@ -7,7 +7,14 @@ import {
   RobotoMono_500Medium,
   RobotoMono_700Bold,
 } from '@expo-google-fonts/roboto-mono';
-// import BottomNavigation from '@mui/material/BottomNavigation'
+import TerraAuthWidget from "../components/TerraAuthWidget";
+import {
+  createDrawerNavigator,
+  DrawerContentScrollView,
+  DrawerItemList,
+  DrawerItem,
+} from '@react-navigation/drawer';
+import { DrawerActions } from '@react-navigation/native'; 
 
 
 
@@ -20,12 +27,13 @@ export default function Landing({ navigation }) {
     // }, 1200);
   }, []);
 
+
   return (
     <View style={styles.container}>
       <Image
         source={require("../../assets/landinglogo.png")}
         style={styles.image}
-        resizeMode="contain"
+        resizeMode="center"
       />
       <Button title="Home" onPress={() => navigation.navigate("Home")}></Button>
       <Button
@@ -36,6 +44,13 @@ export default function Landing({ navigation }) {
         title="Profile"
         onPress={() => navigation.navigate("Profile")}
       ></Button>
+
+
+
+
+      <Button title="Open drawer" onPress={() => navigation.dispatch(DrawerActions.openDrawer())} />
+
+      {/* <TerraAuthWidget /> */}
     </View>
   );
 }
@@ -53,7 +68,7 @@ const styles = StyleSheet.create({
   },
   image: {
     height: 58,
-    width: 350,
+    width: 200,
   },
 });
 

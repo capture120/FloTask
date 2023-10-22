@@ -9,14 +9,15 @@ const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
 
 
-function Root() {
-  return (
-    <Drawer.Navigator>
-      <Drawer.Screen name="Home" component={Home} />
-      <Drawer.Screen name="Dashboard" component={DashBoard} />
-    </Drawer.Navigator>
-  );
-}
+// function Drawers() {
+//   return (
+//     <Drawer.Navigator initialRouteName="Home">
+
+//       <Drawer.Screen name="Home" component={Home} />
+//       <Drawer.Screen name="Dashboard" component={DashBoard} />
+//     </Drawer.Navigator>
+//   );
+// }
 
 
 const AppStack = () => {
@@ -29,8 +30,7 @@ const AppStack = () => {
         headerShown: false,
       }}
     > 
-      <Stack.Screen name="Root" component={Root} />
-
+      {/* <Stack.Screen name="Drawers" component={Drawers} /> */}
       <Stack.Screen name="Landing" component={Landing} />
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="Dashboard" component={DashBoard} />

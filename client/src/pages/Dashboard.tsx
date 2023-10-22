@@ -10,7 +10,7 @@ import {
 import { Feather } from "@expo/vector-icons";
 import axios from "axios";
 import AppLoading from "expo-app-loading";
-import TerraAuthWidget from "../components/terraAuthWidget";
+// import TerraAuthWidget from "../components/terraAuthWidget";
 
 import {
   useFonts,
@@ -67,10 +67,33 @@ export default function DashBoard() {
             />
           </View>
 
-          <View style = {styles.container}>
-            <Image source={require('../../assets/health.png')} style = {styles.IconImage} />
-            {/* Add your dashboard content here */}
+          <Text style = {styles.sectionTitle}>Today's tasks</Text>
+
+          <Image source={require('../../assets/logo.png')} style={styles.image} />
+          
+
+          <View style={styles.widgetContainer}>
+            {/* Widget 1 */}
+            <View style={[styles.widget, { backgroundColor: '#FFE29F' }]}>
+              {/* Content of Widget 1 */}
+            </View>
+
+            {/* Widget 2 */}
+            <View style={[styles.widget, { backgroundColor: '#FFF5D0' }]}>
+              {/* Content of Widget 2 */}
+            </View>
+
+            {/* Widget 3 */}
+            <View style={[styles.widget, { backgroundColor: '#FFCB12' }]}>
+              {/* Content of Widget 3 */}
+            </View>
+
+            {/* Widget 4 */}
+            <View style={[styles.widget, { backgroundColor: '#FFDB8A' }]}>
+              {/* Content of Widget 4 */}
+            </View>
           </View>
+
           {/* <TerraAuthWidget/> */}
       </SafeAreaView>
     );
@@ -110,15 +133,33 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
   },
-  iconContainer: {
+  imageContainer: {
     alignItems: "center",
+    marginTop: 20,
   },
-  IconImage: {
-    width: 200,
-    height: 200
+  image: {
+    width: 300, // Set the width of the image
+    height: 100, // Set the height of the image
+    resizeMode: "contain", // Set the image resize mode
   },
-  scrollView: {
-    backgroundColor: "#FFECCC",
-    marginHorizontal: 20,
+  sectionTitle: {
+    fontSize: 30,
+    marginTop: 8,
+    marginLeft: 15,
+    fontFamily: "Inconsolata_700Bold",
+    color: "black",
+  },
+  widgetContainer: {
+    flexDirection: "column", // Set vertical direction
+    paddingHorizontal: 60,
+    marginTop: 160,
+  },
+  widget: {
+    backgroundColor: "#FFDB8A", // Widget background color
+    borderRadius: 10,
+    padding: 70,
+    marginBottom: 27, // Spacing between widgets
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
