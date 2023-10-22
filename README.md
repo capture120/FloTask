@@ -30,33 +30,45 @@ Ex: ```yarn add --dev @types/graceful-fs```
     npm install -g eas-cli
     ```
 
-### Running App in Local Dev Environment
-    npx expo start --tunnel
+### Running App in Localhost Web Browser
+1. npx expo start --tunnel
+2. Open App
+    * Web: Press s to switch to GO build. Press 'w' in terminal to open app in browser
+    * Android, IOS: must build for functionality
 
-### Pushing and Running Production App
+### Running App in Simulator
+
+*** Note: After building and pushing to expo cloud, you do not have to build again unless you have new dependencies.
+If you team already has a functional build on Expo cloud, skip to step 3.
 
 1. **Create client build**
-    * Note: Building is only when you wish to package your solution to Expo cloud. See above for running the app locally.
+    ***Build Locally***
+    If Windows:
+    1. Install WSL2
+    2. Add ANDROID_NDK_HOME=C:\Users\[Your User]\AppData\Local\Android\Sdk\platform-tools in your path environmental variable
+    3. Add JAVA_HOME environmental variable in PATH. Find path to JAVA_HOME by running ```where java``` in cmd
+    4. run npx expo install --fix
+    ```bash
+    eas build --local
+    ```
+    ***Build and Push to Cloud***
     ```bash
     cd client
-    eas login # login with created expo account
+    eas login *** login with created expo account
     eas build:configure 
     # ios
     eas build -p ios --profile development
     # android
-    eas build --profile development --platform android
-
-    # to build app with local machine, run: build: 'npx expo start --tunnel'
-    
+    eas build --platform android --profile development
     ```
 2. **Download the build and drag into simulator**
-    You can install an android simulator, or with mac use xcode
+    You can install an android simulator, or with mac use xcode. Alternatively you can skip to step 3 and use the expo client to run the app from the cloud.
 
-
-1. **Start the client**
+3. **Start the client**
     ```bash
     cd client
     npx expo start --dev-client
     ```
 
    * You can then open the app in the Expo app in the simulator.
+   * This is useful for experimenting with other builds made by you or your team from Expo Cloud
