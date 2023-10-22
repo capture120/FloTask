@@ -4,6 +4,8 @@ import { NativeBaseProvider, extendTheme } from "native-base";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { NavigationContainer } from "@react-navigation/native";
 import AppStack from "./src/navigation/AppStack";
+import 'react-native-gesture-handler';
+
 
 export default function App() {
   const theme = extendTheme({

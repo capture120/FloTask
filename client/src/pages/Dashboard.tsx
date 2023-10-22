@@ -1,7 +1,16 @@
 import React from "react";
-import { View, StyleSheet, SafeAreaView, Text } from "react-native";
-import { FontAwesome, Feather } from "@expo/vector-icons";
+import {
+  View,
+  StyleSheet,
+  SafeAreaView,
+  ScrollView,
+  Text,
+  Image,
+} from "react-native";
+import { Feather } from "@expo/vector-icons";
 import axios from "axios";
+import AppLoading from "expo-app-loading";
+import TerraAuthWidget from "../components/terraAuthWidget";
 
 import {
   useFonts,
@@ -13,7 +22,7 @@ import {
   Inconsolata_700Bold,
   Inconsolata_800ExtraBold,
   Inconsolata_900Black,
-} from '@expo-google-fonts/inconsolata';
+} from "@expo-google-fonts/inconsolata";
 
 export default function DashBoard() {
   const currentDate = new Date();
@@ -24,44 +33,48 @@ export default function DashBoard() {
     console.log(results);
   };
 
-  return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <Feather
-          name="menu"
-          size={24}
-          color="#BF9460"
-          style={styles.menuIcon}
-        />
-        <View style={styles.centeredDateContainer}>
-          <Text style={styles.dateText}>{formattedDate}</Text>
-        </View>
-        <Feather
-          name="user"
-          size={24}
-          color="#BF9460"
-          style={styles.profileIcon}
-        />
-      </View>
-      <View style={styles.content}>
-        <View style={styles.iconContainer}>
-          <FontAwesome
-            name="smile-o"
-            size={24}
-            color="#FFCB12"
-            style={styles.icon}
-          />
-          <FontAwesome
-            name="smile-o"
-            size={24}
-            color="#FFCB12"
-            style={styles.icon}
-          />
-        </View>
-        {/* Add your dashboard content here */}
-      </View>
-    </SafeAreaView>
-  );
+  const [isLoaded] = useFonts({
+    Inconsolata_200ExtraLight,
+    Inconsolata_300Light,
+    Inconsolata_400Regular,
+    Inconsolata_500Medium,
+    Inconsolata_600SemiBold,
+    Inconsolata_700Bold,
+    Inconsolata_800ExtraBold,
+    Inconsolata_900Black,
+  });
+
+  if (!isLoaded) {
+    return <AppLoading />;
+  } else {
+    return (
+      <SafeAreaView style={styles.container}>
+          <View style={styles.header}>
+            <Feather
+              name="menu"
+              size={24}
+              color="#BF9460"
+              style={styles.menuIcon}
+            />
+            <View style={styles.centeredDateContainer}>
+              <Text style={styles.dateText}>{formattedDate}</Text>
+            </View>
+            <Feather
+              name="user"
+              size={24}
+              color="#BF9460"
+              style={styles.profileIcon}
+            />
+          </View>
+
+          <View style = {styles.container}>
+            <Image source={require('../../assets/health.png')} style = {styles.IconImage} />
+            {/* Add your dashboard content here */}
+          </View>
+          {/* <TerraAuthWidget/> */}
+      </SafeAreaView>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -86,8 +99,8 @@ const styles = StyleSheet.create({
   },
   dateText: {
     fontSize: 20,
+    fontFamily: "Inconsolata_700Bold",
     color: "black",
-    fontWeight: "bold",
   },
   profileIcon: {
     position: "absolute",
@@ -98,12 +111,14 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   iconContainer: {
-    flexDirection: "row",
-    justifyContent: "center",
     alignItems: "center",
   },
-  icon: {
-    marginRight: 20,
+  IconImage: {
+    width: 200,
+    height: 200
+  },
+  scrollView: {
+    backgroundColor: "#FFECCC",
+    marginHorizontal: 20,
   },
 });
-

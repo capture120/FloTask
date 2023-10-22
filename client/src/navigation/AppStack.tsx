@@ -4,9 +4,22 @@ import Home from "../pages/Home";
 import Landing from "../pages/Landing";
 import DashBoard from "../pages/Dashboard";
 import Profile from "../pages/Profile";
+
+const Drawer = createDrawerNavigator();
+const Stack = createNativeStackNavigator();
+
+
+function Root() {
+  return (
+    <Drawer.Navigator>
+      <Drawer.Screen name="Home" component={Home} />
+      <Drawer.Screen name="Dashboard" component={DashBoard} />
+    </Drawer.Navigator>
+  );
+}
+
+
 const AppStack = () => {
-  const Stack = createNativeStackNavigator();
-  const Drawer = createDrawerNavigator();
 
   return (
 
@@ -15,7 +28,9 @@ const AppStack = () => {
       screenOptions={{
         headerShown: false,
       }}
-    >
+    > 
+      <Stack.Screen name="Root" component={Root} />
+
       <Stack.Screen name="Landing" component={Landing} />
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="Dashboard" component={DashBoard} />
