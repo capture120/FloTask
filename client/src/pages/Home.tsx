@@ -9,7 +9,17 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-import { useFonts } from 'expo-font';
+import {
+  useFonts,
+  Inconsolata_200ExtraLight,
+  Inconsolata_300Light,
+  Inconsolata_400Regular,
+  Inconsolata_500Medium,
+  Inconsolata_600SemiBold,
+  Inconsolata_700Bold,
+  Inconsolata_800ExtraBold,
+  Inconsolata_900Black,
+} from '@expo-google-fonts/inconsolata';
 
 export default function Home({ navigation }) {
   const handleNavigate = () => {
@@ -17,31 +27,36 @@ export default function Home({ navigation }) {
   };
 
   const [isLoaded] = useFonts({
-    'mono-reg': require("./assets/fonts/AzeretMono_400Regular.ttf"),
-    'mono-med': require("./assets/fonts/AzeretMono_500Medium.ttf"),
-    'mono-bold': require("./assets/fonts/AzeretMono_700Bold.ttf"),
+    Inconsolata_200ExtraLight,
+    Inconsolata_300Light,
+    Inconsolata_400Regular,
+    Inconsolata_500Medium,
+    Inconsolata_600SemiBold,
+    Inconsolata_700Bold,
+    Inconsolata_800ExtraBold,
+    Inconsolata_900Black,
   });
   
   if (!isLoaded) {
     return <AppLoading />;
+  } else {
+    return (
+      <SafeAreaView style={styles.container}>
+        <View style={styles.contentContainer}>
+          <Text style={styles.title}>Hi, welcome to</Text>
+          <Image source={require('../../assets/logo.png')} style={styles.image} />
+          <TouchableOpacity
+            style={styles.buttonContainer}
+            onPress={handleNavigate}
+          >
+            <View style={styles.customButton}>
+              <Text style={styles.buttonText}>Get Started</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+      </SafeAreaView>
+    );
   }
-
-  return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.contentContainer}>
-        <Text style={styles.title}>Hi, welcome to</Text>
-        <Image source={require('../../assets/logo.png')} style={styles.image} />
-        <TouchableOpacity
-          style={styles.buttonContainer}
-          onPress={handleNavigate}
-        >
-          <View style={styles.customButton}>
-            <Text style={styles.buttonText}>Get Started</Text>
-          </View>
-        </TouchableOpacity>
-      </View>
-    </SafeAreaView>
-  );
 }
 
 const styles = StyleSheet.create({
@@ -58,14 +73,14 @@ const styles = StyleSheet.create({
   },
   title: {
     textAlign: 'center',
-    fontFamily: 'mono-bold',
+    fontFamily: 'Inconsolata_700Bold',
     lineHeight: 50,
     position: 'relative',
     top: -20,
   },
   text: {
     textAlign: 'center',
-    fontFamily: 'Share Tech Mono Regular',
+    fontFamily: 'Inconsolata_700Bold',
     lineHeight: 50,
     position: 'relative',
     top: -20,
@@ -87,7 +102,8 @@ const styles = StyleSheet.create({
     marginTop: 50,
   },
   buttonText: {
-    color: 'white',
+    color: 'black',
+    fontFamily: 'Inconsolata_700Bold',
     fontSize: 18,
   },
 });

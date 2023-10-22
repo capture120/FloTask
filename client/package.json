@@ -10,6 +10,7 @@
     "ts:check": "tsc"
   },
   "dependencies": {
+    "@expo-google-fonts/inconsolata": "^0.2.3",
     "@expo-google-fonts/roboto-mono": "^0.2.3",
     "@expo-google-fonts/share-tech-mono": "^0.2.3",
     "@expo/vector-icons": "^13.0.0",
@@ -20,6 +21,7 @@
     "@react-navigation/native": "^6.1.8",
     "@react-navigation/native-stack": "^6.9.14",
     "@reduxjs/toolkit": "^1.9.7",
+    "@tryterra/terra-ui": "^0.1.0",
     "@types/react": "^18.2.28",
     "@types/react-dom": "~18.0.10",
     "@types/react-native": "^0.72.3",
@@ -38,6 +40,8 @@
     "react-dom": "^18.2.0",
     "react-native": "0.72.6",
     "react-native-auth0": "^3.0.2",
+    "react-native-gesture-handler": "^2.13.3",
+    "react-native-reanimated": "^3.5.4",
     "react-native-responsive-screen": "^1.4.2",
     "react-native-safe-area-context": "4.6.3",
     "react-native-screens": "~3.22.0",

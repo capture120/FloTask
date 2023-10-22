@@ -1,7 +1,19 @@
 import React from "react";
 import { View, StyleSheet, SafeAreaView, Text } from "react-native";
-import { Feather } from "@expo/vector-icons";
+import { FontAwesome, Feather } from "@expo/vector-icons";
 import axios from "axios";
+
+import {
+  useFonts,
+  Inconsolata_200ExtraLight,
+  Inconsolata_300Light,
+  Inconsolata_400Regular,
+  Inconsolata_500Medium,
+  Inconsolata_600SemiBold,
+  Inconsolata_700Bold,
+  Inconsolata_800ExtraBold,
+  Inconsolata_900Black,
+} from '@expo-google-fonts/inconsolata';
 
 export default function DashBoard() {
   const currentDate = new Date();
@@ -32,6 +44,20 @@ export default function DashBoard() {
         />
       </View>
       <View style={styles.content}>
+        <View style={styles.iconContainer}>
+          <FontAwesome
+            name="smile-o"
+            size={24}
+            color="#FFCB12"
+            style={styles.icon}
+          />
+          <FontAwesome
+            name="smile-o"
+            size={24}
+            color="#FFCB12"
+            style={styles.icon}
+          />
+        </View>
         {/* Add your dashboard content here */}
       </View>
     </SafeAreaView>
@@ -47,6 +73,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
+    backgroundColor: "transparent",
     padding: 10,
   },
   centeredDateContainer: {
@@ -70,4 +97,13 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
   },
+  iconContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  icon: {
+    marginRight: 20,
+  },
 });
+

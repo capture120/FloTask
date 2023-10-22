@@ -7,6 +7,7 @@ import {
   RobotoMono_500Medium,
   RobotoMono_700Bold,
 } from '@expo-google-fonts/roboto-mono';
+// import BottomNavigation from '@mui/material/BottomNavigation'
 
 
 
@@ -26,13 +27,14 @@ export default function Landing({ navigation }) {
         style={styles.image}
         resizeMode="contain"
       />
-      <Button
-        title="Home"
-        onPress={() => navigation.navigate("Home")}
-      ></Button>
+      <Button title="Home" onPress={() => navigation.navigate("Home")}></Button>
       <Button
         title="Dashboard"
         onPress={() => navigation.navigate("Dashboard")}
+      ></Button>
+      <Button
+        title="Profile"
+        onPress={() => navigation.navigate("Profile")}
       ></Button>
     </View>
   );
