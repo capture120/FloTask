@@ -59,7 +59,11 @@ export default function Profile() {
           </View>
           <View style={styles.content}>
             <View style={styles.customContainer}>
-              {}
+              <Image
+                style={styles.image}
+                source={require("../../assets/piechart.png")}
+                resizeMode="center"
+              />
             </View>
           </View>
           <View style={styles.footer}>
@@ -72,32 +76,31 @@ export default function Profile() {
                   style={styles.homeIcon}
                 />
               </View>
-             
             </View>
-            <View >
-                <Feather
-                  name="book"
-                  size={20}
-                  color="black"
-                  style={styles.notesIcon}
-                />
-              </View>
-              <View>
-                <Feather
-                  name="calendar"
-                  size={20}
-                  color="black"
-                  style={styles.calendarIcon}
-                />
-              </View>
-              <View>
-                <Feather
-                  name="book"
-                  size={20}
-                  color="black"
-                  style={styles.bookIcon}
-                />
-              </View>
+            <View>
+              <Feather
+                name="book"
+                size={20}
+                color="black"
+                style={styles.notesIcon}
+              />
+            </View>
+            <View>
+              <Feather
+                name="calendar"
+                size={20}
+                color="black"
+                style={styles.calendarIcon}
+              />
+            </View>
+            <View>
+              <Feather
+                name="book"
+                size={20}
+                color="black"
+                style={styles.bookIcon}
+              />
+            </View>
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -116,6 +119,14 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     backgroundColor: "transparent",
     padding: 10,
+  },
+
+  image: {
+    width: 300, // Set the width of the image
+    height: 200, // Set the height of the image
+    resizeMode: "contain", // Set the image resize mode
+    alignItems: "center",
+    Top: 30,
   },
 
   menuIcon: {
@@ -177,15 +188,15 @@ const styles = StyleSheet.create({
   homeIcon: {
     position: "absolute",
   },
-  
+
   notesIcon: {
     width: 22.5,
     height: 30,
     marginLeft: -40, // Adjust this value for the desired horizontal position
     marginTop: -35, // Adjust this value for the desired vertical position
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
   },
   calendarIcon: {
     width: 22.5,
@@ -205,5 +216,4 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  
 });

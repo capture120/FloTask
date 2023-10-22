@@ -49,52 +49,74 @@ export default function DashBoard() {
   } else {
     return (
       <SafeAreaView style={styles.container}>
-          <View style={styles.header}>
-            <Feather
-              name="menu"
-              size={24}
-              color="#BF9460"
-              style={styles.menuIcon}
+        <View style={styles.header}>
+          <Feather
+            name="menu"
+            size={24}
+            color="#BF9460"
+            style={styles.menuIcon}
+          />
+          <View style={styles.centeredDateContainer}>
+            <Text style={styles.dateText}>{formattedDate}</Text>
+          </View>
+          <Feather
+            name="user"
+            size={24}
+            color="#BF9460"
+            style={styles.profileIcon}
+          />
+        </View>
+
+        <Text style={styles.sectionTitle}>Today's tasks</Text>
+
+        <Image
+          source={require("../../assets/tree.png")}
+          style={styles.treeimage}
+        />
+        <Image
+          source={require("../../assets/health.png")}
+          style={styles.image}
+        />
+
+        <View style={styles.widgetContainer}>
+          {/* Widget 1 */}
+          <View style={[styles.widget, { backgroundColor: "#FFE29F" }]}>
+            <Image
+              source={require("../../assets/med-yellow.png")}
+              style={styles.widgetImage}
             />
-            <View style={styles.centeredDateContainer}>
-              <Text style={styles.dateText}>{formattedDate}</Text>
-            </View>
-            <Feather
-              name="user"
-              size={24}
-              color="#BF9460"
-              style={styles.profileIcon}
-            />
+            {/* Content of Widget 1 */}
           </View>
 
-          <Text style = {styles.sectionTitle}>Today's tasks</Text>
-
-          <Image source={require('../../assets/logo.png')} style={styles.image} />
-          
-
-          <View style={styles.widgetContainer}>
-            {/* Widget 1 */}
-            <View style={[styles.widget, { backgroundColor: '#FFE29F' }]}>
-              {/* Content of Widget 1 */}
-            </View>
-
-            {/* Widget 2 */}
-            <View style={[styles.widget, { backgroundColor: '#FFF5D0' }]}>
-              {/* Content of Widget 2 */}
-            </View>
-
-            {/* Widget 3 */}
-            <View style={[styles.widget, { backgroundColor: '#FFCB12' }]}>
-              {/* Content of Widget 3 */}
-            </View>
-
-            {/* Widget 4 */}
-            <View style={[styles.widget, { backgroundColor: '#FFDB8A' }]}>
-              {/* Content of Widget 4 */}
-            </View>
+          {/* Widget 2 */}
+          <View style={[styles.widget, { backgroundColor: "#FFF5D0" }]}>
+            <Image
+              source={require("../../assets/lightyellow.png")}
+              style={styles.widgetImage}
+            />
+            {/* Content of Widget 2 */}
           </View>
 
-          {/* <TerraAuthWidget/> */}
+          {/* Widget 3 */}
+          <View style={[styles.widget, { backgroundColor: "#FFCB12" }]}>
+            <Image
+              source={require("../../assets/darkyellow.png")}
+              style={styles.widgetImage}
+            />
+            {/* Content of Widget 3 */}
+          </View>
+
+          {/* Widget 4 */}
+          <View style={[styles.widget, { backgroundColor: "#FFDB8A" }]}>
+            <Image
+              source={require("../../assets/dark-med.png")}
+              style={styles.widgetImage}
+            />
+            {/* Content of Widget 4 */}
+          </View>
+        </View>
+
+        {/* <TerraAuthWidget/> */}
       </SafeAreaView>
     );
   }
@@ -135,12 +157,26 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     alignItems: "center",
-    marginTop: 20,
+    marginTop: 10,
+    marginBottom: 10,
   },
   image: {
     width: 300, // Set the width of the image
     height: 100, // Set the height of the image
     resizeMode: "contain", // Set the image resize mode
+    marginLeft: 45,
+  },
+  logo: {
+    width: 200, // Set the width of the image
+    height: 200, // Set the height of the image
+    resizeMode: "contain", // Set the image resize mode
+    marginLeft: 45,
+  },
+  treeimage: {
+    width: 200, // Set the width of the image
+    height: 200, // Set the height of the image
+    resizeMode: "center", // Set the image resize mode
+    marginLeft: 100,
   },
   sectionTitle: {
     fontSize: 30,
@@ -149,17 +185,30 @@ const styles = StyleSheet.create({
     fontFamily: "Inconsolata_700Bold",
     color: "black",
   },
+  widgetImage: {
+    width: 500, // Set the width of the image
+    height: 100, // Set the height of the image
+    resizeMode: "contain", // Set the image resize mode
+  },
   widgetContainer: {
     flexDirection: "column", // Set vertical direction
-    paddingHorizontal: 60,
-    marginTop: 160,
+    paddingHorizontal: 30,
+    marginTop: 9,
   },
   widget: {
     backgroundColor: "#FFDB8A", // Widget background color
     borderRadius: 10,
-    padding: 70,
+    padding: 30,
     marginBottom: 27, // Spacing between widgets
     alignItems: "center",
     justifyContent: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 4,
+      height: 4,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 0,
+    elevation: 4,
   },
 });

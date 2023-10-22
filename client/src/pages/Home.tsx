@@ -81,16 +81,17 @@ const styles = StyleSheet.create({
   text: {
     textAlign: 'center',
     fontFamily: 'Inconsolata_700Bold',
-    lineHeight: 50,
+    lineHeight: 60,
     position: 'relative',
-    top: -20,
+    top: -40,
   },
   image: {
     height: 200,
     width: 200,
+    marginTop: 90,
   },
   buttonContainer: {
-    marginTop: 20,
+    marginTop: 40,
   },
   customButton: {
     width: 253,
@@ -99,7 +100,7 @@ const styles = StyleSheet.create({
     borderRadius: 38,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 50,
+    marginTop: 100,
   },
   buttonText: {
     color: 'black',

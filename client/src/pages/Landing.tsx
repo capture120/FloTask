@@ -1,32 +1,13 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { StyleSheet, Text, View, Button, Image } from "react-native";
-import AppLoading from 'expo-app-loading';
-import {
-  useFonts,
-  RobotoMono_400Regular,
-  RobotoMono_500Medium,
-  RobotoMono_700Bold,
-} from '@expo-google-fonts/roboto-mono';
 import TerraAuthWidget from "../components/TerraAuthWidget";
-import {
-  createDrawerNavigator,
-  DrawerContentScrollView,
-  DrawerItemList,
-  DrawerItem,
-} from '@react-navigation/drawer';
-import { DrawerActions } from '@react-navigation/native'; 
-
-
-
 
 export default function Landing({ navigation }) {
-
   useEffect(() => {
     // setTimeout(() => {
     //   navigation.navigate("Home");
     // }, 1200);
   }, []);
-
 
   return (
     <View style={styles.container}>
@@ -45,12 +26,7 @@ export default function Landing({ navigation }) {
         onPress={() => navigation.navigate("Profile")}
       ></Button>
 
-
-
-
-      <Button title="Open drawer" onPress={() => navigation.dispatch(DrawerActions.openDrawer())} />
-
-      {/* <TerraAuthWidget /> */}
+      <TerraAuthWidget />
     </View>
   );
 }
@@ -80,6 +56,3 @@ const styles = StyleSheet.create({
     />
 </View>
 */
-
-
-
